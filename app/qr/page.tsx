@@ -66,7 +66,9 @@ export default function QRPage() {
     );
   }
 
-  const resultUrl = `${process.env.NEXT_PUBLIC_BASE_URL || window.location.origin}/result/${sessionId}`;
+  // Always use the current deployment URL (not localhost in production)
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  const resultUrl = `${baseUrl}/result/${sessionId}`;
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-4 bg-gradient-to-br from-slate-900 to-slate-800">
