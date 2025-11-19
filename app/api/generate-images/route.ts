@@ -58,7 +58,7 @@ export async function POST(request: NextRequest) {
 
       // Extract image from response
       // Check if response has candidates structure
-      if (response.candidates && response.candidates[0] && response.candidates[0].content) {
+      if (response.candidates && response.candidates[0] && response.candidates[0].content && response.candidates[0].content.parts) {
         const parts = response.candidates[0].content.parts;
         for (const part of parts) {
           if (part.inlineData) {
